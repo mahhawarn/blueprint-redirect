@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="ja" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <link href="../../static/dist/output.css" rel="stylesheet" />
+    <title>{% block title %}
+      title
+    {% endblock %}</title>
+  </head>
+  <body class="bg-gray-50">
+    {% block header %}
+      
+    {% endblock %}
+    {% block content %}
+      <br />
+      content
+    {% endblock %}
+    {% block footer %}
+      <br />
+      <a href="{{url_for("index")}}">indexへ</a>
+    {% endblock %}
+  </body>
+</html>

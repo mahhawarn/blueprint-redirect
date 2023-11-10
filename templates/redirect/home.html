@@ -1,0 +1,49 @@
+{% extends "base2.html" %}
+{% block content %}
+<link href="../../static/form_stylesheet.css" rel="stylesheet" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Gloock&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Kaisei+Tokumin&display=swap" rel="stylesheet">
+  <div>
+      <div class="flex items-center justify-center h-max py-28">
+        <div class="flex float-left pr-5 px-4 py-3 rounded-md shadow-md
+        -inset-1 bg-gradient-to-r from-pink-300 to-purple-400 blur-md opacity-75 ">
+          <img src="../../static/img/2.jpg" class="h-24 rounded-full" />
+          <a class="flex items-center pl-3 text-5xl font-gloock text-blue-900">ShortURL</a>
+          <a class="flex items-center text-4xl font-kaisei font-bold text-blue-900">変換</a>
+        </div>
+
+      </div>
+      <h1 class="bg-yellow-400 text-white uppercase tracking-wide px-6 py-2"
+      >URL入力</h1>
+      {% from "redirect/_formhelpers.html" import render_field %}
+      <form method="POST" action="{{ url_for("redirect_app.input") }}" novalidate class=
+      "bg-yellow-100 text-black uppercase tracking-wide px-6 py-6 pb-8 shadow-sm">
+          <div class="mb-3 font-bold">
+            {{ form.hidden_tag() }}
+            {{ render_field(form.url, class="form-control") }}
+          </div>
+          <!-- ▼▼▼▼▼ flashメッセージ ▼▼▼▼▼ -->
+          {% for message in get_flashed_messages() %}
+          <div class="alert alert-info">
+              {{ message }}
+          </div>
+          {% endfor %}
+          <!-- ▲▲▲▲▲ flashメッセージ ▲▲▲▲▲ -->
+          <div class="">
+            <p class="float-left">
+              {{ form.submit(class="btn btn-primary") }}
+            </p>
+            <a href="{{url_for("redirect_app.redirect_func")}}" class="font-kaisei float-left pl-3">
+              GO
+            </a>
+          </div>
+      </form>
+      <br>
+
+  </div>
+{% endblock %}
+{% block footer %}
+
+{% endblock %}
