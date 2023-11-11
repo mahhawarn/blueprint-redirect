@@ -38,4 +38,4 @@ def load_user(user_id):
 from errorhandler import *
 
 if __name__ == "__main__":
-    app()
+    app.run()
